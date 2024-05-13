@@ -1,75 +1,17 @@
-"use client";
-import Container from "./components/Container";
-// import { useDispatch, useSelector } from "react-redux";
-// import { increment } from "@/lib/slices/counterScore";
-// const count = useSelector((state) => state.counter.value);
-// const dispatch = useDispatch();
-import Introduction from "./components/Introduction";
-import { useEffect, useState } from "react";
-import Content from "./components/Home";
+import React from "react";
+import Introduction from "./Introduction"; // ต้องการตรวจสอบว่าควร import อย่างไร
+import Link from "next/link";
 
-export default function Home() {
-  const [audio, setAudio] = useState(null);
-  const [playing, setPlaying] = useState(false);
-
-  useEffect(() => {
-    setAudio(new Audio("/bgm.mp3"));
-  }, []);
-
-  const startPlaying = () => {
-    setPlaying(true);
-    audio && audio.play();
-  };
-
-  const stopPlaying = () => {
-    setPlaying(false);
-    audio && audio.pause();
-  };
-
-  useEffect(() => {
-    return () => {
-      stopPlaying();
-    };
-  }, []);
-
-
-
-  const [isCheckIntro, setisCheckIntro] = useState(true);
-  const [isCheckNext, setisCheckNext] = useState(true);
-  const [fadeOut, setFadeOut] = useState(false);
-  const [fadeIn, setFadeIn] = useState(false);
-
-  const changeStatusNext = () => {
-    setFadeOut(true);
-    setTimeout(() => {
-      setisCheckNext(false);
-      setFadeIn(true);
-      setFadeOut(false);
-    }, 1000); // 500 milliseconds for the fade out transition
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setisCheckIntro(false);
-    }, 3500);
-  }, []);
-
+const Content = ({
+  isCheckNext,
+  fadeIn,
+  fadeOut,
+  changeStatusNext,
+  startPlaying,
+}) => {
   return (
-    <Container className="flex flex-col items-center py-8 px-14 relative bg-white">
-      {isCheckIntro && <Introduction />}
-      <Content
-        isCheckIntro={isCheckIntro}
-        isCheckNext={isCheckNext}
-        fadeIn={fadeIn}
-        fadeOut={fadeOut}
-        changeStatusNext={changeStatusNext}
-        startPlaying={startPlaying}
-      />
-    </Container>
-  );
-}
-{
-  /* <div className={`h-[296px] flex items-end `}>
+    <>
+      <div className="h-[296px] flex items-end">
         {isCheckNext ? (
           <p
             className={`text-center mt-[6.5rem] ${
@@ -107,19 +49,23 @@ export default function Home() {
           }`}
           onClick={() => {
             changeStatusNext();
-            // startPlaying();
+            // startPlaying()
           }}
         >
           เข้าใจแล้ว
         </button>
       ) : (
         <Link
-          href={"/next-page/page1"}
+          href={"/info"}
           className={`mt-10 px-4 py-3 bg-green-200 rounded-lg text-white font-medium ${
             fadeIn ? "animate__animated animate__fadeIn" : ""
           }`}
         >
           เริ่มเลย
         </Link>
-      )} */
-}
+      )}
+    </>
+  );
+};
+
+export default Content;
