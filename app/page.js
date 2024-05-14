@@ -51,7 +51,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       setisCheckIntro(false);
-    }, 3500);
+    }, 4000);
   }, []);
 
   return (
