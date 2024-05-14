@@ -1,7 +1,7 @@
 import React from "react";
 import Introduction from "./Introduction"; // ต้องการตรวจสอบว่าควร import อย่างไร
 import Link from "next/link";
-
+import "animate.css"
 const Content = ({
   isCheckNext,
   fadeIn,
@@ -11,7 +11,7 @@ const Content = ({
 }) => {
   return (
     <>
-      <div className="h-[296px] flex items-end">
+      <div className=" h-[296px] flex items-end">
         {isCheckNext ? (
           <p
             className={`text-center mt-[6.5rem] ${
@@ -56,7 +56,7 @@ const Content = ({
         </button>
       ) : (
         <Link
-          href={"/info"}
+          href={"/add-name"}
           className={`mt-10 px-4 py-3 bg-green-200 rounded-lg text-white font-medium ${
             fadeIn ? "animate__animated animate__fadeIn" : ""
           }`}

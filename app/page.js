@@ -32,8 +32,6 @@ export default function Home() {
     };
   }, []);
 
-
-
   const [isCheckIntro, setisCheckIntro] = useState(true);
   const [isCheckNext, setisCheckNext] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
