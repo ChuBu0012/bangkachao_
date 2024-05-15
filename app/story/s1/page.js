@@ -1,7 +1,8 @@
-"use client";
 import Container from "@/app/components/Container";
 import StoryComponent from "@/app/components/Story";
-import bgImage from "@/app/images/bg-main.jpg";
+import bgS1_1 from "@/app/images/bg-s1-1.png";
+import bgS1_2 from "@/app/images/bg-s1-2.png";
+import bgS1_3 from "@/app/images/bg-s1-3.png";
 
 const data = [
   {
@@ -12,7 +13,7 @@ const data = [
         หลังเลิกงานในเมืองหลวง
       </span>
     ),
-    image: bgImage,
+    image: bgS1_1.src,
   },
   {
     text: (
@@ -22,7 +23,7 @@ const data = [
         ที่คุณใช้เป็นประจำ
       </span>
     ),
-    image: bgImage,
+    image: bgS1_2.src,
   },
   {
     text: (
@@ -32,14 +33,15 @@ const data = [
         ในซอยไป กลับมีแสงสว่างวาบ
       </span>
     ),
-    image: bgImage,
+    image: bgS1_3.src,
   },
 ];
+
 
 const S1 = () => {
   return (
     <Container className="flex flex-col items-center relative">
-      <StoryComponent data={data} href="/quiz/q1" />
+      <StoryComponent data={data} href="/quiz/q1"  />
     </Container>
   );
 };

@@ -4,18 +4,26 @@ import Image from "next/image";
 import "animate.css";
 import { useRouter } from "next/navigation";
 
-const StoryComponent = ({ data, href = "/" }) => {
+const StoryComponent = ({
+  data,
+  href = "/",
+  py = "0px",
+  mt_text = "214px",
+  setter = null,
+}) => {
   const [fadeOut, setfadeOut] = useState(false);
   const [fadeIn, setfadeIn] = useState(false);
   const [cursor, setcursor] = useState(0);
   const router = useRouter();
   const changeStory = () => {
-    
     setfadeOut(true);
 
-    
+    if (setter != null) {
+      setter(cursor);
+    }
+
     setTimeout(() => {
-      if(cursor == data.length - 1){
+      if (cursor == data.length - 1) {
         router.push(href);
       }
       if (cursor < data.length) {
@@ -33,19 +41,24 @@ const StoryComponent = ({ data, href = "/" }) => {
     setTimeout(() => {
       setfadeIn(false);
     }, 800);
-  },[]);
+  }, []);
   return (
     <div
-      className={`flex flex-col items-center relative animate__animated ${
+      className={`flex flex-col items-center relative animate__animated w-full h-full ${
         fadeOut ? "animate__fadeOut" : ""
-      } ${fadeIn ? "animate__fadeIn" : ""}`}
+      } ${fadeIn ? "animate__fadeIn" : ""} bg-contain`}
+      style={{
+        background: `url(${data[cursor]?.image}) no-repeat`,
+        backgroundPositionY: py,
+      }}
     >
       <button
         onClick={changeStory}
-        className="bg-red-100 absolute w-full h-full opacity-0"
+        className=" absolute w-full h-full opacity-0"
       ></button>
-      <p className="mt-[214px] text-center">{data[cursor]?.text}</p>
-      <Image alt="" src={data[cursor]?.image} className="w-full mt-10" />
+      <p className={` text-center`} style={{ marginTop: mt_text }}>
+        {data[cursor]?.text}
+      </p>
     </div>
   );
 };

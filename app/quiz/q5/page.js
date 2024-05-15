@@ -6,30 +6,25 @@ import ChoiceBtn from "@/app/components/ChoiceBtn";
 import { useDispatch, useSelector } from "react-redux";
 import { push } from "@/lib/slices/counterScore";
 import { useRouter } from "next/navigation";
-import bgS2_1 from "@/app/images/bg-s2-1.png";
-
-const Q1 = () => {
+const Q5 = () => {
   const router = useRouter();
 
   const data = {
     q: (
       <span>
-        จากตึกสูง เปลี่ยนเป็นคุณอยู่กลางต้นไม้สูง <br />
-        ความรู้สึกของคุณเป็นอย่างไรขณะยืนอยู่ <br /> ท่ามกลางป่า?
+        คุณปั่นจักรยานไปตามทาง <br/> จนไปพบกับคนที่ไม่ได้เจอกันมานาน <br/> คนนั้นคือใคร? 
       </span>
     ),
     c: [
-      { text: "ตื่นตระหนก", score: 1 },
-      { text: "สับสน งุนงง", score: 1 },
-      { text: "อยากรู้อยากเห็น", score: 1 },
-      { text: "ประหม่า", score: 1 },
-      { text: "กังวลแต่นิ่งเฉย", score: 1 },
-      { text: "ประหลาดใจ", score: 1 },
-      { text: "ตื่นเต้นดีใจ", score: 1 },
-      { text: "สดชื่นอย่างบอกไม่ถูก", score: 1 },
+      { text: "คนรักเก่า", score: 1 },
+      { text: "เพื่อนซี้สมัยมัธยม", score: 1 },
+      { text: "คนที่เคยเจอแต่ยังไม่รู้จักชื่อเขา", score: 1 },
+      { text: "แก๊งเพื่อนเก่า", score: 1 },
+      { text: "คนในครอบครัวของคุณ", score: 1 },
+      { text: "สัตว์เลี้ยงตัวโปรด", score: 1 },
+      { text: "แฟนคนแรก", score: 1 },
+      { text: "คนที่คุณเคารพและไว้ใจ", score: 1 },
     ],
-    image: bgS2_1.src,
-    py:"0px"
   };
   const dispatch = useDispatch();
 
@@ -38,7 +33,7 @@ const Q1 = () => {
   const handleClick = (index, href) => {
     setSelected(index);
     dispatch(push(data.c[index].score));
-
+    setfadeOut(true);
     setTimeout(() => {
       setfadeOut(true);
     }, 500);
@@ -49,11 +44,9 @@ const Q1 = () => {
 
   return (
     <Container
-      className={`flex flex-col items-center animate__animated  animate__fadeIn   ${
-        fadeOut ? "animate__fadeOut" : "animate__delay-1s"
+      className={`flex flex-col items-center animate__animated ${
+        fadeOut ? "animate__fadeOut" : ""
       }`}
-
-      bgImg={bgS2_1.src}
     >
       <p className="mt-24 text-center animate__animated animate__fadeIn animate__delay-1s h-[72px] flex flex-col justify-center">
         {data?.q}
@@ -65,7 +58,7 @@ const Q1 = () => {
               key={i}
               choice={text}
               isSelected={selected === i}
-              onClick={() => handleClick(i, "/story/s2")}
+              onClick={() => handleClick(i, "/quiz/q6")}
             />
           ))}
       </div>
@@ -73,4 +66,4 @@ const Q1 = () => {
   );
 };
 
-export default Q1;
+export default Q5;

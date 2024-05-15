@@ -49,7 +49,7 @@ const Q3 = () => {
   const next = () => {
     setfadeOut(true);
     setTimeout(()=>{
-      router.push("/quiz/q4")
+      router.push("/quiz/q12")
     },1000)
   };
 

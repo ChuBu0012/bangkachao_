@@ -1,13 +1,17 @@
 "use client";
 import React, { useState } from "react";
 import Container from "../components/Container";
-import Link from "next/link";
-import "animate.css"
+import "animate.css";
+import { useRouter } from "next/navigation";
 const AddName = () => {
-  const [font, setfont] = useState(true);
-
+  const [fadeOut, setfadeOut] = useState(false);
+  const rotuer = useRouter()
   return (
-    <Container className={" flex flex-col items-center animate__animated animate__fadeIn animate__delay-1s"}>
+    <Container
+      className={` flex flex-col items-center animate__animated animate__fadeIn animate__delay-1s ${
+        fadeOut ? "animate__fadeOut" : ""
+      }`}
+    >
       <p className="mt-40 font-light text-center">
         ก่อนจะเดินทางไปด้วยกัน <br />{" "}
         <span className="font-semibold">ขอทำความรู้จักคุณหน่อย</span>
@@ -23,7 +27,6 @@ const AddName = () => {
             className="outline-none h-[38px] pl-[13px] rounded-lg text-[#828282] w-full"
             id="custom-select"
             onChange={() => {
-              setfont(false);
             }}
             style={{
               fontFamily: `Kanit`,
@@ -48,12 +51,17 @@ const AddName = () => {
           className="outline-none h-10 w-full px-4 py-2 border border-[#E0E0E0] rounded-lg placeholder-[#828282]"
         />
       </form>
-      <Link
-        href={"/story/s1"}
-        className="mt-[60px] px-4 py-2 bg-green-200 rounded-lg text-white font-medium"
+      <button
+        onClick={() => {
+          setfadeOut(true);
+          setTimeout(() => {
+            rotuer.push("/story/s1");
+          }, 1000);
+        }}
+        className={`mt-[60px] px-4 py-2 bg-green-200 rounded-lg text-white font-medium animate__animated `}
       >
         เดินทางต่อ
-      </Link>
+      </button>
     </Container>
   );
 };

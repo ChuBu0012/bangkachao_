@@ -1,8 +1,6 @@
-"use client";
 import Container from "@/app/components/Container";
 import StoryComponent from "@/app/components/Story";
-import bgImage from "@/app/images/bg-main.jpg";
-import { useState } from "react";
+import bgS2_1 from "@/app/images/bg-s2-1.png";
 
 const data = [
   {
@@ -12,11 +10,11 @@ const data = [
         ไปตามถนนที่เต็มไปด้วยต้นไม้
       </span>
     ),
-    image: bgImage,
+    image: bgS2_1.src,
   },
 ];
 
-const S1 = () => {
+const S2 = () => {
   return (
     <Container className="flex flex-col items-center relative">
       <StoryComponent data={data} href="/quiz/q2"/>
@@ -24,4 +22,4 @@ const S1 = () => {
   );
 };
 
-export default S1;
+export default S2;
