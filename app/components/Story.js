@@ -33,7 +33,7 @@ const StoryComponent = ({ data, href = "/" }) => {
     setTimeout(() => {
       setfadeIn(false);
     }, 800);
-  });
+  },[]);
   return (
     <div
       className={`flex flex-col items-center relative animate__animated ${

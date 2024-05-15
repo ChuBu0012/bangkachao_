@@ -7,7 +7,7 @@ const AddName = () => {
   const [font, setfont] = useState(true);
 
   return (
-    <Container className={" flex flex-col items-center animate__animated animate__fadeIn"}>
+    <Container className={" flex flex-col items-center animate__animated animate__fadeIn animate__delay-1s"}>
       <p className="mt-40 font-light text-center">
         ก่อนจะเดินทางไปด้วยกัน <br />{" "}
         <span className="font-semibold">ขอทำความรู้จักคุณหน่อย</span>

@@ -40,7 +40,7 @@ const Q1 = () => {
     }, 500);
     setTimeout(() => {
       router.push(href);
-    }, 1000);
+    }, 1500);
   };
 
   return (

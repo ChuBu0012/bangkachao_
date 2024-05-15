@@ -1,7 +1,9 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import Introduction from "./Introduction"; // ต้องการตรวจสอบว่าควร import อย่างไร
 import Link from "next/link";
 import "animate.css"
+import { useRouter } from "next/navigation";
 const Content = ({
   isCheckNext,
   fadeIn,
@@ -9,6 +11,8 @@ const Content = ({
   changeStatusNext,
   startPlaying,
 }) => {
+  const [endfade, setendfade] = useState(false)
+  const router = useRouter()
   return (
     <>
       <div className=" h-[296px] flex items-end">
@@ -32,7 +36,7 @@ const Content = ({
           <p
             className={`text-center mt-[6.5rem] ${
               fadeIn ? "animate__animated animate__fadeIn" : ""
-            }`}
+            } ${endfade ? "animate__animated animate__fadeOut" : ""}`}
           >
             เพื่ออถรรสในการเล่น
             <br />
@@ -55,14 +59,17 @@ const Content = ({
           เข้าใจแล้ว
         </button>
       ) : (
-        <Link
-          href={"/add-name"}
+        <button
+        onClick={()=>{
+          setendfade(true)
+          setTimeout(()=>{router.push("/add-name")},1000)
+        }}
           className={`mt-10 px-4 py-3 bg-green-200 rounded-lg text-white font-medium ${
             fadeIn ? "animate__animated animate__fadeIn" : ""
-          }`}
+          } ${endfade ? "animate__animated animate__fadeOut" : ""}`}
         >
           เริ่มเลย
-        </Link>
+        </button>
       )}
     </>
   );
