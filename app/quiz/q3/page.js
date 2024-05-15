@@ -10,9 +10,11 @@ import Image from "next/image";
 import b1 from "@/app/images/b-1.png";
 import b2 from "@/app/images/b-2.png";
 import b3 from "@/app/images/b-3.png";
+import b4 from "@/app/images/b-4.png";
 import b5 from "@/app/images/b-5.png";
 import b6 from "@/app/images/b-6.png";
 import b7 from "@/app/images/b-7.png";
+import b8 from "@/app/images/b-8.png";
 
 const Q3 = () => {
   const router = useRouter();
@@ -29,13 +31,11 @@ const Q3 = () => {
       { text: "จักรยานญี่ปุ่น", score: 1, image: b1 },
       { text: "จักรยานเสือภูเขา", score: 1, image: b2 },
       { text: "จักรยานทั่วไป", score: 1, image: b3 },
-      // รอรูป
-      { text: "จักรยานไฟฟ้า", score: 1, image: b1 },
+      { text: "จักรยานไฟฟ้า", score: 1, image: b4 },
       { text: "จักรยานมีตระกร้าหน้า", score: 1, image: b5 },
       { text: "จักรยานฟิกเกียร์", score: 1, image: b6 },
       { text: "จักรยานสองตอน", score: 1, image: b7 },
-      // รอรูป
-      { text: "จักรยานถีบสามล้อ", score: 1, image: b1 },
+      { text: "จักรยานถีบสามล้อ", score: 1, image: b8 },
     ],
   };
   const dispatch = useDispatch();

@@ -10,7 +10,7 @@ const Q9 = () => {
   const router = useRouter();
 
   const data = {
-    q: <span>แล้วคุณคิดว่า br
+    q: <span>แล้วคุณคิดว่า <br/>
     คุณให้เวลากับตัวเองมากพอหรือยัง?</span>,
     c: [
       { text: "ไม่พออยากได้เวลาเพิ่ม", score: 1 },
@@ -20,9 +20,10 @@ const Q9 = () => {
     ],
   };
   const dispatch = useDispatch();
-
+  
   const [selected, setSelected] = useState(null);
   const [fadeOut, setfadeOut] = useState(false);
+
   const handleClick = (index, href) => {
     setSelected(index);
     dispatch(push(data.c[index].score));

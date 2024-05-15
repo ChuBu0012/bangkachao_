@@ -1,7 +1,5 @@
 "use client"
 import React, { useState } from "react";
-import Introduction from "./Introduction"; // ต้องการตรวจสอบว่าควร import อย่างไร
-import Link from "next/link";
 import "animate.css"
 import { useRouter } from "next/navigation";
 const Content = ({
@@ -53,7 +51,6 @@ const Content = ({
           }`}
           onClick={() => {
             changeStatusNext();
-            // startPlaying()
           }}
         >
           เข้าใจแล้ว
@@ -62,6 +59,7 @@ const Content = ({
         <button
         onClick={()=>{
           setendfade(true)
+          startPlaying()
           setTimeout(()=>{router.push("/add-name")},1000)
         }}
           className={`mt-10 px-4 py-3 bg-green-200 rounded-lg text-white font-medium ${

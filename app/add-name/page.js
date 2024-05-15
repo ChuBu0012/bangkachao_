@@ -42,6 +42,9 @@ const AddName = () => {
             <option value="f" key="female">
               หญิง
             </option>
+            <option value="f" key="other">
+              อื่นๆ
+            </option>
           </select>
         </div>
 
