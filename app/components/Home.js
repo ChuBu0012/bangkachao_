@@ -59,7 +59,7 @@ const Content = ({
         <button
         onClick={()=>{
           setendfade(true)
-          startPlaying()
+          // startPlaying()
           setTimeout(()=>{router.push("/add-name")},1000)
         }}
           className={`mt-10 px-4 py-3 bg-green-200 rounded-lg text-white font-medium ${
