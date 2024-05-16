@@ -1,6 +1,6 @@
 "use client";
 import Container from "./components/Container";
-// import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch } from "react-redux";
 // import { increment } from "@/lib/slices/counterScore";
 // const count = useSelector((state) => state.counter.value);
 // const dispatch = useDispatch();
@@ -13,7 +13,10 @@ export default function Home() {
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
-    setAudio(new Audio("/bgm.mp3"));
+    const audioInstance = new Audio("/soundtrack.mp3");
+    audioInstance.volume = 0.1; 
+    audioInstance.loop = true; 
+    setAudio(audioInstance);
   }, []);
 
   const startPlaying = () => {

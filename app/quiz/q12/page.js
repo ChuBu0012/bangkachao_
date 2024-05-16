@@ -3,8 +3,9 @@ import Container from "@/app/components/Container";
 import React, { useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
-import { useDispatch, useSelector } from "react-redux";
-import { push } from "@/lib/slices/counterScore";
+import { useDispatch } from "react-redux";
+import { add } from "@/lib/slices/counterScore";
+
 import { useRouter } from "next/navigation";
 import bgS2_1 from "@/app/images/bg-s2-1.png";
 
@@ -36,8 +37,7 @@ const Q1 = () => {
   const [fadeOut, setfadeOut] = useState(false);
   const handleClick = (index, href) => {
     setSelected(index);
-    dispatch(push(data.c[index].score));
-
+    dispatch(add(index))
     setTimeout(() => {
       setfadeOut(true);
     }, 500);
@@ -64,7 +64,7 @@ const Q1 = () => {
               key={i}
               choice={text}
               isSelected={selected === i}
-              onClick={() => handleClick(i, "/story/s2")}
+              onClick={() => handleClick(i, "/result")}
               className={`${i == 7 ? "text-sm" : ""} `}
             />
           ))}

@@ -10,10 +10,9 @@ const data = [
   {
     text: (
       <span>
-        เวลาที่คุณได้ใช้กับตัวเอง <br /> เป็นของขวัญที่ดีที่สุดที่คุณควรได้รับ
-        <br />
-        <br />
-        ให้เวลากับคนอื่นแล้ว <br /> อย่าลืมให้เวลากับตัวเองบ้างนะ
+        ตอนนี้คนข้างตัวของคุณบอกให้คุณ <br />
+        ทําหัวให้โล่งมองบรรยากาศรอบๆที่มีแต่ป่า <br />
+        และอากาศที่ดีที่สุดเท่าที่คุณเคยรู้สึก
       </span>
     ),
     image: bgS1_1.src,
@@ -21,8 +20,8 @@ const data = [
   {
     text: (
       <span>
-        ไปสถานที่ที่ชอบ ดื่มเครื่องดื่มแสนอร่อย <br />{" "}
-        ไปกินเมนูโปรดที่สั่งเป็นประจำ
+        ตอนนี้ลองฟังเสียงรอบๆดูสิทั้งเสียงนก <br />
+        ต้นจากที่กระทบกันตอนลมผ่าน
       </span>
     ),
     image: bgS1_2.src,
@@ -30,7 +29,8 @@ const data = [
   {
     text: (
       <span>
-        พักผ่อนให้รางวัลกับตัวเองบ้าง <br /> เพราะคุณคือคนพิเศษนะ{":)"}
+        เสียงน้ําจากแอ่งน้ําตอนนี้สูดอากาศลึกๆ <br />
+        ให้เต็มปอด ลองหลับตาสัก 10 วินะ
       </span>
     ),
     image: bgS1_3.src,
@@ -38,20 +38,21 @@ const data = [
 ];
 
 const S4 = () => {
-  const [index, setindex] = useState(0);
-  const [m, setm] = useState("160px");
-  useEffect(() => {
-    setTimeout(() => {
-      setm("116px");
-    }, 1000);
-  }, [index]);
+  const [m, setm] = useState(false);
+  const changeMt = (cursor) => {
+    if (!m) {
+      setTimeout(() => {
+        setm(true);
+      }, 1000);
+    }
+  };
   return (
     <Container className="flex flex-col items-center relative">
       <StoryComponent
         data={data}
-        href="/quiz/q11"
-        setter={setindex}
-        mt_text={`${m}`}
+        href="/quiz/q9"
+        setter={changeMt}
+        mt_text={`${m ? "140px" : "128px"}`}
       />
     </Container>
   );

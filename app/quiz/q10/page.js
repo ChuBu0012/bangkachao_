@@ -3,8 +3,8 @@ import Container from "@/app/components/Container";
 import React, { useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
-import { useDispatch, useSelector } from "react-redux";
-import { push } from "@/lib/slices/counterScore";
+import { useDispatch } from "react-redux";
+
 import { useRouter } from "next/navigation";
 const Q9 = () => {
   const router = useRouter();
@@ -26,7 +26,6 @@ const Q9 = () => {
 
   const handleClick = (index, href) => {
     setSelected(index);
-    dispatch(push(data.c[index].score));
     setfadeOut(true);
     setTimeout(() => {
       setfadeOut(true);
@@ -52,7 +51,7 @@ const Q9 = () => {
               key={i}
               choice={text}
               isSelected={selected === i}
-              onClick={() => handleClick(i, "/story/s4")}
+              onClick={() => handleClick(i, "/story/s5")}
             />
           ))}
       </div>

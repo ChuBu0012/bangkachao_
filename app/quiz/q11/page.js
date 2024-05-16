@@ -3,18 +3,21 @@ import Container from "@/app/components/Container";
 import React, { useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
-import { useDispatch, useSelector } from "react-redux";
-import { push } from "@/lib/slices/counterScore";
+import { useDispatch } from "react-redux";
+import { add } from "@/lib/slices/counterScore";
+
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import b1 from "@/app/images/b-1.png";
-import b2 from "@/app/images/b-2.png";
-import b3 from "@/app/images/b-3.png";
-import b5 from "@/app/images/b-5.png";
-import b6 from "@/app/images/b-6.png";
-import b7 from "@/app/images/b-7.png";
+import a1 from "@/app/images/a-1.png";
+import a2 from "@/app/images/a-2.png";
+import a3 from "@/app/images/a-3.png";
+import a4 from "@/app/images/a-4.png";
+import a5 from "@/app/images/a-5.png";
+import a6 from "@/app/images/a-6.png";
+import a7 from "@/app/images/a-7.png";
+import a8 from "@/app/images/a-8.png";
 
-const Q3 = () => {
+const Q11 = () => {
   const router = useRouter();
 
   const data = {
@@ -26,16 +29,14 @@ const Q3 = () => {
     ),
     //
     c: [
-      { text: "จักรยานญี่ปุ่น", score: 1, image: b1 },
-      { text: "จักรยานเสือภูเขา", score: 1, image: b2 },
-      { text: "จักรยานทั่วไป", score: 1, image: b3 },
-      // รอรูป
-      { text: "จักรยานไฟฟ้า", score: 1, image: b1 },
-      { text: "จักรยานมีตระกร้าหน้า", score: 1, image: b5 },
-      { text: "จักรยานฟิกเกียร์", score: 1, image: b6 },
-      { text: "จักรยานสองตอน", score: 1, image: b7 },
-      // รอรูป
-      { text: "จักรยานถีบสามล้อ", score: 1, image: b1 },
+      { text: <span>เสื้อหรือชุดผ้ามัดย้อม <br/> สีสดใส</span>, score: 1, image: a1 },
+      { text: "แก้วสกรีนลายสุดเท่", score: 1, image: a2 },
+      { text: "หมวกสวยๆซักใบ", score: 1, image: a3 },
+      { text: "กาแฟคั่วบดอย่างดี", score: 1, image: a4 },
+      { text: <span>เครื่องประดับ <br/> ที่ระยิบระยับ</span>, score: 1, image: a5 },
+      { text: <span>เสื้อพิมพ์ลาย <br/> เอาไปใส่ได้เป็นแก๊งค์</span>, score: 1, image: a6 },
+      { text: "โปสการ์ดสวยๆซักใบ", score: 1, image: a7 },
+      { text: "ถุงผ้าลายน่ารักๆ", score: 1, image: a8 },
     ],
   };
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const Q3 = () => {
 
   const next = () => {
     setfadeOut(true);
+    dispatch(add(selected))
     setTimeout(()=>{
       router.push("/quiz/q12")
     },1000)
@@ -74,10 +76,12 @@ const Q3 = () => {
               ({ text }, i) =>
                 i < 4 && (
                   <ChoiceBtn
+                    className={"text-sm"}
                     key={i}
                     choice={text}
                     isSelected={selected === i}
-                    onClick={() => handleClick(i, "/quiz/q4")}
+                    onClick={() => handleClick(i, "/quiz/q12")}
+                    hl={true}
                   />
                 )
             )}
@@ -88,11 +92,12 @@ const Q3 = () => {
               ({ text }, i) =>
                 i >= 4 && (
                   <ChoiceBtn
-                    className={`${i == 4 ? "text-sm" : ""} `}
+                    className={"text-sm"}
                     key={i}
                     choice={text}
                     isSelected={selected === i}
-                    onClick={() => handleClick(i, "/quiz/q4")}
+                    onClick={() => handleClick(i, "/quiz/q12")}
+                    hl={true}
                   />
                 )
             )}
@@ -105,4 +110,4 @@ const Q3 = () => {
   );
 };
 
-export default Q3;
+export default Q11;

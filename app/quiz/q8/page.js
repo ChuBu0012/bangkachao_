@@ -3,8 +3,8 @@ import Container from "@/app/components/Container";
 import React, { useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
-import { useDispatch, useSelector } from "react-redux";
-import { push } from "@/lib/slices/counterScore";
+import { useDispatch } from "react-redux";
+
 import { useRouter } from "next/navigation";
 const Q7 = () => {
   const router = useRouter();
@@ -23,7 +23,7 @@ const Q7 = () => {
   const next = () =>{
     setfadeOut(true)
     setTimeout(()=>{
-        router.push("/quiz/q9")
+        router.push("/story/s4")
     },1000)
   }
   return (

@@ -3,8 +3,8 @@ import Container from "@/app/components/Container";
 import React, { useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
-import { useDispatch, useSelector } from "react-redux";
-import { push } from "@/lib/slices/counterScore";
+import { useDispatch } from "react-redux";
+import { addTwo } from "@/lib/slices/counterScore";
 import { useRouter } from "next/navigation";
 const Q9 = () => {
   const router = useRouter();
@@ -24,8 +24,8 @@ const Q9 = () => {
   const [fadeOut, setfadeOut] = useState(false);
   const handleClick = (index, href) => {
     setSelected(index);
-    dispatch(push(data.c[index].score));
-    setfadeOut(true);
+    const index_ = index*2
+    dispatch(addTwo({ one: index_ , two: index_ + 1 }));
     setTimeout(() => {
       setfadeOut(true);
     }, 500);

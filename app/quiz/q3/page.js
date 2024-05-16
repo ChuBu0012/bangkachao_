@@ -3,8 +3,9 @@ import Container from "@/app/components/Container";
 import React, { useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
-import { useDispatch, useSelector } from "react-redux";
-import { push } from "@/lib/slices/counterScore";
+import { useDispatch } from "react-redux";
+import { add } from "@/lib/slices/counterScore";
+
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import b1 from "@/app/images/b-1.png";
@@ -48,6 +49,7 @@ const Q3 = () => {
 
   const next = () => {
     setfadeOut(true);
+    dispatch(add(selected))
     setTimeout(()=>{
       router.push("/quiz/q4")
     },1000)
