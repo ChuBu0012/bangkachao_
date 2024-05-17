@@ -76,10 +76,10 @@ const Q3 = () => {
               ({ text }, i) =>
                 i < 4 && (
                   <ChoiceBtn
-                    key={i}
+                    key={i+i}
                     choice={text}
-                    isSelected={selected === i}
-                    onClick={() => handleClick(i, "/quiz/q4")}
+                    isSelected={selected === i+i}
+                    onClick={() => handleClick(i+i, "/quiz/q4")}
                   />
                 )
             )}
@@ -88,13 +88,14 @@ const Q3 = () => {
           {Array.isArray(data.c) &&
             data.c.map(
               ({ text }, i) =>
+                
                 i >= 4 && (
                   <ChoiceBtn
                     className={`${i == 4 ? "text-sm" : ""} `}
-                    key={i}
+                    key={i-(7-i)}
                     choice={text}
-                    isSelected={selected === i}
-                    onClick={() => handleClick(i, "/quiz/q4")}
+                    isSelected={selected === i-(7-i)}
+                    onClick={() => handleClick(i-(7-i), "/quiz/q4")}
                   />
                 )
             )}

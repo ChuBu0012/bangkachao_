@@ -58,7 +58,7 @@ const Q1 = () => {
       <p className="mt-24 text-center animate__animated animate__fadeIn animate__delay-1s h-[72px] flex flex-col justify-center">
         {data?.q}
       </p>
-      <div className="animate__animated animate__fadeIn animate__delay-2s flex flex-col w-72 gap-4 mt-[52px] font-medium ">
+      <div className="animate__animated animate__fadeIn animate__delay-5s flex flex-col w-72 gap-4 mt-[52px] font-medium ">
         {Array.isArray(data.c) &&
           data.c.map(({ text }, i) => (
             <ChoiceBtn

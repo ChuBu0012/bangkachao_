@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "./Container";
-import logo from '../images/logo.png';
+import logo from '../images/Logo-02-02 1.svg';
 import Image from "next/image";
 import 'animate.css';
 

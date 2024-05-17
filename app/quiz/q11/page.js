@@ -23,18 +23,44 @@ const Q11 = () => {
   const data = {
     q: (
       <span>
-        คุณไปเจอจักรยานคันหนึ่ง <br /> พร้อมป้ายเขียนกำกับไว้ว่า For you <br />{" "}
-        จักรยานคันนั้นเป็นแบบไหน?
+        คุณพบว่าเวลาล่วงเลยไปจนใกล้ค่ำ <br />{" "}
+        ขณะนี้คุณยืนอยู่หน้าร้านของฝากแห่งหนึ่ง <br />
+        <br />
+        คุณคิดว่าอยากได้อะไร <br /> ติดไม้ติดมือกลับไปด้วย?
       </span>
     ),
     //
     c: [
-      { text: <span>เสื้อหรือชุดผ้ามัดย้อม <br/> สีสดใส</span>, score: 1, image: a1 },
+      {
+        text: (
+          <span>
+            เสื้อหรือชุดผ้ามัดย้อม <br /> สีสดใส
+          </span>
+        ),
+        score: 1,
+        image: a1,
+      },
       { text: "แก้วสกรีนลายสุดเท่", score: 1, image: a2 },
       { text: "หมวกสวยๆซักใบ", score: 1, image: a3 },
       { text: "กาแฟคั่วบดอย่างดี", score: 1, image: a4 },
-      { text: <span>เครื่องประดับ <br/> ที่ระยิบระยับ</span>, score: 1, image: a5 },
-      { text: <span>เสื้อพิมพ์ลาย <br/> เอาไปใส่ได้เป็นแก๊งค์</span>, score: 1, image: a6 },
+      {
+        text: (
+          <span>
+            เครื่องประดับ <br /> ที่ระยิบระยับ
+          </span>
+        ),
+        score: 1,
+        image: a5,
+      },
+      {
+        text: (
+          <span>
+            เสื้อพิมพ์ลาย <br /> เอาไปใส่ได้เป็นแก๊งค์
+          </span>
+        ),
+        score: 1,
+        image: a6,
+      },
       { text: "โปสการ์ดสวยๆซักใบ", score: 1, image: a7 },
       { text: "ถุงผ้าลายน่ารักๆ", score: 1, image: a8 },
     ],
@@ -49,10 +75,10 @@ const Q11 = () => {
 
   const next = () => {
     setfadeOut(true);
-    dispatch(add(selected))
-    setTimeout(()=>{
-      router.push("/quiz/q12")
-    },1000)
+    dispatch(add(selected));
+    setTimeout(() => {
+      router.push("/quiz/q12");
+    }, 1000);
   };
 
   return (
@@ -61,7 +87,7 @@ const Q11 = () => {
         fadeOut ? "animate__fadeOut" : ""
       }`}
     >
-      <p className="mt-24 text-center animate__animated animate__fadeIn animate__delay-1s h-[72px] flex flex-col justify-center">
+      <p className="mt-12 text-center animate__animated animate__fadeIn animate__delay-1s h-auto flex flex-col justify-center">
         {data?.q}
       </p>
       {/*  */}
@@ -77,10 +103,10 @@ const Q11 = () => {
                 i < 4 && (
                   <ChoiceBtn
                     className={"text-sm"}
-                    key={i}
+                    key={i + i}
                     choice={text}
-                    isSelected={selected === i}
-                    onClick={() => handleClick(i, "/quiz/q12")}
+                    isSelected={selected === i + i}
+                    onClick={() => handleClick(i + i, "/quiz/q12")}
                     hl={true}
                   />
                 )
@@ -93,17 +119,20 @@ const Q11 = () => {
                 i >= 4 && (
                   <ChoiceBtn
                     className={"text-sm"}
-                    key={i}
+                    key={i - (7 - i)}
                     choice={text}
-                    isSelected={selected === i}
-                    onClick={() => handleClick(i, "/quiz/q12")}
+                    isSelected={selected === i - (7 - i)}
+                    onClick={() => handleClick(i - (7 - i), "/quiz/q12")}
                     hl={true}
                   />
                 )
             )}
         </div>
       </div>
-      <button onClick={next} className="mt-9 bg-black py-2 px-4 text-white rounded-lg animate__animated  animate__fadeIn animate__delay-2s">
+      <button
+        onClick={next}
+        className="mt-9 bg-black py-2 px-4 text-white rounded-lg animate__animated  animate__fadeIn animate__delay-2s"
+      >
         เดินทางต่อ
       </button>
     </Container>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import Container from "../components/Container";
 import { useRouter } from "next/navigation";
@@ -14,11 +14,20 @@ const Info = () => {
     gender: "",
     age: 0,
   });
-
-  const [error, setError] = useState("");
+  const [checkName, setcheckName] = useState(false);
+  const [checkGender, setcheckGender] = useState(false);
+  const [checkAge, setcheckAge] = useState(false);
 
   const inputInfo = (e, field) => {
-    const value = field === "age" ? parseInt(e.target.value, 10) : e.target.value;
+    const value =
+      field === "age" ? parseInt(e.target.value, 10) : e.target.value;
+    if (field === "name") {
+      setcheckName(false);
+    } else if (field === "gender") {
+      setcheckGender(false);
+    } else if (field === "age") {
+      setcheckAge(false);
+    }
     setinfo((prevInfo) => ({ ...prevInfo, [field]: value }));
   };
 
@@ -30,7 +39,15 @@ const Info = () => {
         router.push("/story/s1");
       }, 1000);
     } else {
-      setError("*กรุณากรอกข้อมูลให้ครบทุกช่อง");
+      if (!info.name) {
+        setcheckName(true);
+      }
+      if(!info.gender){
+        setcheckGender(true)
+      }
+      if(!info.age){
+        setcheckAge(true)
+      }
     }
   };
 
@@ -51,9 +68,15 @@ const Info = () => {
           value={info.name}
           onChange={(e) => inputInfo(e, "name")}
           placeholder="ชื่อเล่น"
-          className="outline-none h-10 w-full px-4 py-2 border border-[#E0E0E0] rounded-lg placeholder-[#828282]"
+          className={`outline-none transition-all h-10 w-full px-4 py-2 border ${
+            checkName ? "border-red-400" : "border-[#E0E0E0]"
+          } rounded-lg placeholder-[#828282]`}
         />
-        <div className="outline-none h-10 w-full border border-[#E0E0E0] rounded-lg placeholder-[#828282]">
+        <div
+          className={`outline-none transition-all h-10 w-full border ${
+            checkGender ? "border-red-400" : "border-[#E0E0E0]"
+          } rounded-lg placeholder-[#828282]`}
+        >
           <select
             className="outline-none h-[38px] pl-[13px] rounded-lg text-[#828282] w-full"
             id="custom-select"
@@ -83,11 +106,13 @@ const Info = () => {
         <input
           type="number"
           required
+          value={info.age || ""}
           onChange={(e) => inputInfo(e, "age")}
           placeholder="อายุ"
-          className="outline-none h-10 w-full px-4 py-2 border border-[#E0E0E0] rounded-lg placeholder-[#828282]"
+          className={`outline-none transition-all h-10 w-full px-4 py-2 border ${
+            checkAge ? "border-red-400" : "border-[#E0E0E0]"
+          } rounded-lg placeholder-[#828282]`}
         />
-      {error && <p className="text-red-500 absolute text-xs -bottom-6">{error}</p>}
       </form>
       <button
         onClick={saveInfo}

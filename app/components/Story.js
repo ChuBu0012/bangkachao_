@@ -44,9 +44,9 @@ const StoryComponent = ({
   }, []);
   return (
     <div
-      className={`flex flex-col items-center relative animate__animated w-full h-full ${
-        fadeOut ? "animate__fadeOut" : ""
-      } ${fadeIn ? "animate__fadeIn" : ""} bg-contain`}
+      className={`flex flex-col items-center relative animate__animated animate__fadeIn w-full h-full ${
+        fadeOut ? "animate__fadeOut" : "animate__delay-1s"
+      }  bg-contain`}
       style={{
         background: `url(${data[cursor]?.image}) no-repeat`,
         backgroundPositionY: py,
