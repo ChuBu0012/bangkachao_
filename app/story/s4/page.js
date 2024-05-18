@@ -1,10 +1,12 @@
 "use client";
 import Container from "@/app/components/Container";
 import StoryComponent from "@/app/components/Story";
-import bgS1_1 from "@/app/images/bg-s1-1.png";
-import bgS1_2 from "@/app/images/bg-s1-2.png";
-import bgS1_3 from "@/app/images/bg-s1-3.png";
+import bgS1_1 from "@/app/images/bg-s2-1.png";
+import bgS4_1 from "@/app/images/bg-s4-1.svg";
+import bgS4_3 from "@/app/images/bg-s4-3.svg";
+import { pauseSound, playSound } from "@/lib/slices/soundEffect";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 const data = [
   {
@@ -24,7 +26,7 @@ const data = [
         เสียงต้นไม้จากที่กระทบกันตอนลมผ่าน
       </span>
     ),
-    image: bgS1_2.src,
+    image: bgS4_1.src,
   },
   {
     text: (
@@ -33,26 +35,43 @@ const data = [
         ให้เต็มปอด ลองหลับตาสัก 10 วินะ
       </span>
     ),
-    image: bgS1_3.src,
+    image: bgS4_3.src,
   },
 ];
 
 const S4 = () => {
   const [m, setm] = useState(false);
+  const dispatch = useDispatch()
   const changeMt = (cursor) => {
     if (!m) {
       setTimeout(() => {
         setm(true);
       }, 1000);
     }
+
+    switch (cursor) {
+      case 1:
+        dispatch(playSound({ soundId: "se4_2", vol: 1 }));
+        break;
+      case 2:
+        dispatch(pauseSound({ soundId: "se4_1" }));
+        dispatch(pauseSound({ soundId: "se4_2" }));
+        break;
+      default:
+        break;
+    }
   };
+
+  useEffect(() => {
+    dispatch(playSound({soundId:"se4_1"}))
+  }, []);
   return (
     <Container className="flex flex-col items-center relative">
       <StoryComponent
         data={data}
         href="/quiz/q9"
         setter={changeMt}
-        mt_text={`${m ? "140px" : "128px"}`}
+        mt_text={`${m ? "184px" : "128px"}`}
       />
     </Container>
   );

@@ -33,7 +33,7 @@ const Q3 = () => {
       { text: "จักรยานเสือภูเขา", score: 1, image: b2 },
       { text: "จักรยานทั่วไป", score: 1, image: b3 },
       { text: "จักรยานไฟฟ้า", score: 1, image: b4 },
-      { text: "จักรยานมีตระกร้าหน้า", score: 1, image: b5 },
+      { text: "จักรยานมีตะกร้าหน้า", score: 1, image: b5 },
       { text: "จักรยานฟิกเกียร์", score: 1, image: b6 },
       { text: "จักรยานสองตอน", score: 1, image: b7 },
       { text: "จักรยานถีบสามล้อ", score: 1, image: b8 },

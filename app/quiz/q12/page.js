@@ -8,6 +8,7 @@ import { add } from "@/lib/slices/counterScore";
 
 import { useRouter } from "next/navigation";
 import bgS2_1 from "@/app/images/bg-s2-1.png";
+import { pauseSound } from "@/lib/slices/soundEffect";
 
 const Q1 = () => {
   const router = useRouter();
@@ -42,6 +43,7 @@ const Q1 = () => {
       setfadeOut(true);
     }, 500);
     setTimeout(() => {
+      dispatch(pauseSound({soundId:"se5_1"}))
       router.push(href);
     }, 1000);
   };

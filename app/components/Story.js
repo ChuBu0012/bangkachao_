@@ -18,7 +18,7 @@ const StoryComponent = ({
   const changeStory = () => {
     setfadeOut(true);
 
-    if (setter != null) {
+    if (setter) {
       setter(cursor);
     }
 

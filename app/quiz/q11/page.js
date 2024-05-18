@@ -1,6 +1,6 @@
 "use client";
 import Container from "@/app/components/Container";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
 import { useDispatch } from "react-redux";
@@ -16,6 +16,7 @@ import a5 from "@/app/images/a-5.png";
 import a6 from "@/app/images/a-6.png";
 import a7 from "@/app/images/a-7.png";
 import a8 from "@/app/images/a-8.png";
+import { playSound } from "@/lib/slices/soundEffect";
 
 const Q11 = () => {
   const router = useRouter();
@@ -80,6 +81,10 @@ const Q11 = () => {
       router.push("/quiz/q12");
     }, 1000);
   };
+
+  useEffect(() => {
+    dispatch(playSound({soundId:"se5_1"}))
+  }, []);
 
   return (
     <Container

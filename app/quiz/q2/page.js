@@ -1,11 +1,14 @@
 "use client";
 import Container from "@/app/components/Container";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
 import { useDispatch } from "react-redux";
 import { add } from "@/lib/slices/counterScore";
 import { useRouter } from "next/navigation";
+import bgS2_1 from "@/app/images/bg-s2-1.png";
+import { pauseSound, playSound } from "@/lib/slices/soundEffect";
+
 const Q2 = () => {
   const router = useRouter();
 
@@ -37,15 +40,21 @@ const Q2 = () => {
         setfadeOut(true);
       }, 500);
       setTimeout(() => {
+        dispatch(pauseSound({soundId:"se2_1"}))
+        dispatch(pauseSound({soundId:"se2_2"}))
+        dispatch(pauseSound({soundId:"se2_3"}))
         router.push(href);
       }, 1000);
   };
-
+  useEffect(()=>{
+    dispatch(playSound({soundId:"se2_3"}))
+  },[])
   return (
     <Container
-      className={`flex flex-col items-center animate__animated ${
-        fadeOut ? "animate__fadeOut" : ""
+      className={`flex flex-col items-center animate__animated animate__fadeIn${
+        fadeOut ? "animate__fadeOut" : "animate__delay-1s"
       }`}
+      bgImg={bgS2_1.src}
     >
       <p className="mt-24 text-center animate__animated animate__fadeIn animate__delay-1s h-[72px] flex flex-col justify-center">
         {data?.q}

@@ -1,6 +1,6 @@
 import Container from "@/app/components/Container";
 import StoryComponent from "@/app/components/Story";
-import bgS2_1 from "@/app/images/bg-s2-1.png";
+import bgS2_2 from "@/app/images/bg-s2-2.png";
 
 const data = [
   {
@@ -10,14 +10,14 @@ const data = [
         เลือดกําเดาคุณไหลออกจากจมูก <br /> คุณแสบจมูกและในปอดรู้สึกอึดอัดไปหมด
       </span>
     ),
-    image: null,
+    image: bgS2_2.src,
   },
 ];
 
 const S2 = () => {
   return (
     <Container className="flex flex-col items-center relative">
-      <StoryComponent data={data} href="/quiz/q7" mt_text="313px" />
+      <StoryComponent data={data} href="/quiz/q7" mt_text="75px" />
     </Container>
   );
 };

@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { add } from "@/lib/slices/counterScore";
 
 import { useRouter } from "next/navigation";
+import { pauseSound } from "@/lib/slices/soundEffect";
 const Q6 = () => {
   const router = useRouter();
 
@@ -38,6 +39,7 @@ const Q6 = () => {
       setfadeOut(true);
     }, 500);
     setTimeout(() => {
+      dispatch(pauseSound({soundId:"se3_1"}))
       router.push(href);
     }, 1000);
   };

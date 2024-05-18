@@ -41,7 +41,7 @@ const Q9 = () => {
         fadeOut ? "animate__fadeOut" : ""
       }`}
     >
-      <p className="mt-24 text-center animate__animated animate__fadeIn animate__delay-1s h-[72px] flex flex-col justify-center">
+      <p className="mt-44 text-center animate__animated animate__fadeIn animate__delay-1s h-[72px] flex flex-col justify-center">
         {data?.q}
       </p>
       <div className="animate__animated animate__fadeIn animate__delay-2s flex flex-col w-72 gap-4 mt-[152px] font-medium ">

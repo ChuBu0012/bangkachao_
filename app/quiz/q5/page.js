@@ -1,12 +1,13 @@
 "use client";
 import Container from "@/app/components/Container";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
 import { useDispatch } from "react-redux";
 import { add } from "@/lib/slices/counterScore";
 
 import { useRouter } from "next/navigation";
+import { playSound } from "@/lib/slices/soundEffect";
 const Q5 = () => {
   const router = useRouter();
 
@@ -41,6 +42,9 @@ const Q5 = () => {
       router.push(href);
     }, 1000);
   };
+  useEffect(() => {
+    dispatch(playSound({soundId:"se3_1"}))
+  }, []);
 
   return (
     <Container

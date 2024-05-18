@@ -1,12 +1,13 @@
 "use client";
 import Container from "@/app/components/Container";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import bgS2_1 from "@/app/images/bg-s2-1.png";
 import { add } from "@/lib/slices/counterScore";
+import { playSound } from "@/lib/slices/soundEffect";
 
 const Q1 = () => {
   const router = useRouter();
@@ -47,15 +48,19 @@ const Q1 = () => {
     }, 1000);
   };
 
+  useEffect(()=>{
+    dispatch(playSound({soundId:"se2_1"}))
+  },[])
+
   return (
     <Container
-      className={`flex flex-col items-center animate__animated  animate__fadeIn   ${
+      className={`flex flex-col items-center animate__animated  animate__fadeIn  ${
         fadeOut ? "animate__fadeOut" : "animate__delay-1s"
       }`}
 
       bgImg={bgS2_1.src}
     >
-      <p className="mt-24 text-center animate__animated animate__fadeIn animate__delay-1s h-[72px] flex flex-col justify-center">
+      <p className="mt-36 text-center animate__animated animate__fadeIn animate__delay-1s h-[72px] flex flex-col justify-center">
         {data?.q}
       </p>
       <div className="animate__animated animate__fadeIn animate__delay-5s flex flex-col w-72 gap-4 mt-[52px] font-medium ">

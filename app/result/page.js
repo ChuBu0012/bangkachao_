@@ -37,7 +37,8 @@ const Result = () => {
         ดูผลลัพธ์
       </button>
       {loading && "loading..."}
-      {/* {maxIndex} */}
+      จำนวนข้อที่ตอบไป : {counter} <br/>
+      เป็นตัวที่ : {maxIndex+1}
     </Container>
   );
 };
