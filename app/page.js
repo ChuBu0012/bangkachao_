@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     const audioInstance = new Audio("/soundtrack.mp3");
-    audioInstance.volume = 0.1; 
+    audioInstance.volume = 0.3; 
     audioInstance.loop = true; 
     setAudio(audioInstance);
   }, []);
@@ -56,7 +56,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Container className="flex flex-col items-center py-8 px-14 relative bg-white">
+    <Container className="flex flex-col items-center py-8 px-[38px] relative bg-white">
       {isCheckIntro && <Introduction />}
       <Content
         isCheckIntro={isCheckIntro}

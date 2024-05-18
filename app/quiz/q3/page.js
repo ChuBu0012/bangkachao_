@@ -42,9 +42,11 @@ const Q3 = () => {
   const dispatch = useDispatch();
 
   const [selected, setSelected] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(0);
   const [fadeOut, setfadeOut] = useState(false);
-  const handleClick = (index, href) => {
+  const handleClick = (index, indexImg) => {
     setSelected(index);
+    setSelectedImage(indexImg)
   };
 
   const next = () => {
@@ -66,7 +68,7 @@ const Q3 = () => {
       </p>
       {/*  */}
       <div className=" pt-11 animate__animated  animate__fadeIn animate__delay-2s">
-        <Image alt="" src={data?.c[selected]?.image} className="w-full h-36" />
+        <Image alt="" src={data?.c[selectedImage]?.image} className="w-full h-36" />
       </div>
 
       <div className="flex gap-5">
@@ -78,8 +80,9 @@ const Q3 = () => {
                   <ChoiceBtn
                     key={i+i}
                     choice={text}
+                    
                     isSelected={selected === i+i}
-                    onClick={() => handleClick(i+i, "/quiz/q4")}
+                    onClick={() => handleClick(i+i, i)}
                   />
                 )
             )}
@@ -95,7 +98,7 @@ const Q3 = () => {
                     key={i-(7-i)}
                     choice={text}
                     isSelected={selected === i-(7-i)}
-                    onClick={() => handleClick(i-(7-i), "/quiz/q4")}
+                    onClick={() => handleClick(i-(7-i), i)}
                   />
                 )
             )}

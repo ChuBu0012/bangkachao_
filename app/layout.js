@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
-
+import icon from "./images/Logo-02-02 1.svg";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
