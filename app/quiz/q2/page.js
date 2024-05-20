@@ -51,7 +51,7 @@ const Q2 = () => {
   },[])
   return (
     <Container
-      className={`flex flex-col items-center animate__animated animate__fadeIn${
+      className={`flex flex-col items-center animate__animated animate__fadeIn ${
         fadeOut ? "animate__fadeOut" : "animate__delay-1s"
       }`}
       bgImg={bgS2_1.src}
