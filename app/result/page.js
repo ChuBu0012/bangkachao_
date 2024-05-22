@@ -14,6 +14,7 @@ import result_7 from "../images/result/7_result.png";
 import result_8 from "../images/result/8_result.png";
 import "animate.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const Result = () => {
   const info = useSelector((state) => state.Info);
@@ -27,14 +28,14 @@ const Result = () => {
   const [result, setResult] = useState(false);
 
   const setOfResult = [
-    result_1.src,
-    result_2.src,
-    result_3.src,
-    result_4.src,
-    result_5.src,
-    result_6.src,
-    result_7.src,
-    result_8.src,
+    result_1,
+    result_2,
+    result_3,
+    result_4,
+    result_5,
+    result_6,
+    result_7,
+    result_8,
   ];
   const submit = async () => {
     try {
@@ -69,9 +70,9 @@ const Result = () => {
   };
   return (
     <Container
-      className={`flex flex-col item-center relative bg-contain animate__animated animate__fadeIn animate__delay-1s`}
-      bgImg={result ? setOfResult[maxIndex] : ""}
+      className={`flex flex-col item-center relative bg-conta in animate__animated animate__fadeIn animate__delay-1s`}
     >
+      <Image className={`absolute -z-10 animate__animated ${result ? "animate__fadeIn" : "opacity-0 pointer-events-none"}`} src={setOfResult[maxIndex]}/>
       <Link
         target="_blank"
         href={"https://www.facebook.com/groups/253853421103820/"}
