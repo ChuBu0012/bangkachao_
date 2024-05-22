@@ -26,7 +26,8 @@ const Q9 = () => {
 
   const handleClick = (index, href) => {
     setSelected(index);
-    setfadeOut(true);
+    const index_ = index*2
+    dispatch(addTwo({ one: index_ , two: index_ + 1 }));
     setTimeout(() => {
       setfadeOut(true);
     }, 500);
