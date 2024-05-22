@@ -2,6 +2,7 @@
 import { pauseSound, playSound } from "@/lib/slices/soundEffect";
 import React from "react";
 import { useDispatch } from "react-redux";
+import LoadingDots from "../components/LoadingDots";
 
 const page = () => {
   const dispatch = useDispatch();
@@ -12,8 +13,9 @@ const page = () => {
     dispatch(pauseSound({soundId:"se1_1"}))
   }
   return <>
-    <button onClick={playS1}>เล่นเพลง</button>
-    <button onClick={stopS1}>หยุดเพลง</button>
+    {/* <button onClick={playS1}>เล่นเพลง</button>
+    <button onClick={stopS1}>หยุดเพลง</button> */}
+    <LoadingDots/>
   </>;
 };
 

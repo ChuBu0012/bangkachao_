@@ -1,21 +1,19 @@
 // components/LoadingDots.js
 
-const LoadingDots = () => {
-    return (
-      <div className="flex items-center space-x-2">
-        <span>Loading</span>
-        <div
-          className="w-14 h-[26.9px] bg-no-repeat animate-dots"
-          style={{
-            background: `radial-gradient(circle closest-side, #474bff 90%, #0000) 0% 50%,
-                         radial-gradient(circle closest-side, #474bff 90%, #0000) 50% 50%,
-                         radial-gradient(circle closest-side, #474bff 90%, #0000) 100% 50%`,
-            backgroundSize: 'calc(100%/3) 13.4px',
-          }}
-        ></div>
+import Image from "next/image";
+import Container from "./Container";
+import by from "../images/bicycle 1.svg";
+import "animate.css"
+const LoadingDots = ({className}) => {
+  return (
+    <Container className={`animate__animated  animate__fadeIn  flex flex-col items-center justify-center absolute w-full h-full bg-white left-0 ${className}`}>
+      <Image src={by} alt />
+      <div className="flex flex-col items-center relative w-fit pr-5">
+        <span className="font-medium">Loading</span>
+        <div className="dots absolute bottom-1 right-0"></div>
       </div>
-    );
-  };
-  
-  export default LoadingDots;
-  
+    </Container>
+  );
+};
+
+export default LoadingDots;
