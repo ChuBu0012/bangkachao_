@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
 import { useDispatch } from "react-redux";
-
+import { addTwo } from "@/lib/slices/counterScore";
 import { useRouter } from "next/navigation";
 const Q9 = () => {
   const router = useRouter();
