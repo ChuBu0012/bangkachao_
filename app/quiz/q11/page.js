@@ -110,7 +110,7 @@ const Q11 = () => {
               ({ text }, i) =>
                 i < 4 && (
                   <ChoiceBtn
-                    className={"text-sm"}
+                    className={"text-sm px-2"}
                     key={i + i}
                     choice={text}
                     isSelected={selected === i + i}
@@ -126,7 +126,7 @@ const Q11 = () => {
               ({ text }, i) =>
                 i >= 4 && (
                   <ChoiceBtn
-                    className={"text-sm"}
+                    className={"text-sm px-2"}
                     key={i - (7 - i)}
                     choice={text}
                     isSelected={selected === i - (7 - i)}

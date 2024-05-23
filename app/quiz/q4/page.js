@@ -13,7 +13,7 @@ const Q4 = () => {
   const data = {
     q: (
       <span>
-        คุณจะทำไรอย่างไร <br /> กับจักรยานคันนี้ ?
+        คุณจะทำอย่างไร <br /> กับจักรยานคันนี้ ?
       </span>
     ),
     c: [
@@ -51,10 +51,11 @@ const Q4 = () => {
       <p className="mt-24 text-center animate__animated animate__fadeIn animate__delay-1s h-[72px] flex flex-col justify-center">
         {data?.q}
       </p>
-      <div className="animate__animated animate__fadeIn animate__delay-2s flex flex-col w-72 gap-4 mt-[52px] font-medium ">
+      <div className="animate__animated animate__fadeIn animate__delay-2s flex flex-col w-[19rem] gap-4 mt-[52px] font-medium whitespace-nowrap">
         {Array.isArray(data.c) &&
           data.c.map(({ text }, i) => (
             <ChoiceBtn
+            className={`${i == 6 && "text-sm"}`}
               key={i}
               choice={text}
               isSelected={selected === i}
