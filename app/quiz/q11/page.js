@@ -43,7 +43,7 @@ const Q11 = () => {
       },
       { text: "แก้วสกรีนลายสุดเท่", score: 1, image: a2 },
       { text: "หมวกสวยๆซักใบ", score: 1, image: a3 },
-      { text: "กาแฟคั่วบดอย่างดี", score: 1, image: a4 },
+      { text: "ถุงผ้าลายน่ารักๆ", score: 1, image: a4 },
       {
         text: (
           <span>
@@ -62,8 +62,8 @@ const Q11 = () => {
         score: 1,
         image: a6,
       },
-      { text: "โปสการ์ดสวยๆซักใบ", score: 1, image: a7 },
-      { text: "ถุงผ้าลายน่ารักๆ", score: 1, image: a8 },
+      { text: "กาแฟคั่วบดอย่างดี", score: 1, image: a7 },
+      { text: "โปสการ์ดสวยๆซักใบ", score: 1, image: a8 },
     ],
   };
   const dispatch = useDispatch();
@@ -100,7 +100,7 @@ const Q11 = () => {
       </p>
       {/*  */}
       <div className=" pt-11 animate__animated  animate__fadeIn animate__delay-2s">
-        <Image alt="" src={data?.c[selectedImage]?.image} className="w-full h-36" />
+        <Image alt="" src={data?.c[selectedImage]?.image} className="w-full h-36 max-w-[217px]" />
       </div>
 
       <div className="flex gap-5">
@@ -141,7 +141,7 @@ const Q11 = () => {
         onClick={next}
         className="mt-9 bg-black py-2 px-4 text-white rounded-lg animate__animated  animate__fadeIn animate__delay-2s"
       >
-        เดินทางต่อ
+        เดินทางต่อ {">>"}
       </button>
     </Container>
   );

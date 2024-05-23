@@ -68,7 +68,7 @@ const Q3 = () => {
       </p>
       {/*  */}
       <div className=" pt-11 animate__animated  animate__fadeIn animate__delay-2s">
-        <Image alt="" src={data?.c[selectedImage]?.image} className="w-full h-36" />
+        <Image alt="" src={data?.c[selectedImage]?.image} className="w-52 h-36" />
       </div>
 
       <div className="flex gap-5">
@@ -105,7 +105,7 @@ const Q3 = () => {
         </div>
       </div>
       <button onClick={next} className="mt-9 bg-black py-2 px-4 text-white rounded-lg animate__animated  animate__fadeIn animate__delay-2s">
-        เดินทางต่อ
+        เดินทางต่อ {">>"}
       </button>
     </Container>
   );

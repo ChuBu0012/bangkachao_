@@ -72,7 +72,9 @@ const Result = () => {
     <Container
       className={`flex flex-col item-center relative bg-conta in animate__animated animate__fadeIn animate__delay-1s`}
     >
-      <Image className={`absolute -z-10 animate__animated ${result ? "animate__fadeIn" : "opacity-0 pointer-events-none"}`} src={setOfResult[maxIndex]}/>
+      <p className="mt-9 text-center">
+        <span className="font-medium">{info?.name}</span> คือ...</p>
+      <Image className={` -z-10 animate__animated ${result ? "animate__fadeIn" : "opacity-0 pointer-events-none"}`} src={setOfResult[maxIndex]}/>
       <Link
         target="_blank"
         href={"https://www.facebook.com/groups/253853421103820/"}

@@ -2,8 +2,7 @@
 import Container from "@/app/components/Container";
 import StoryComponent from "@/app/components/Story";
 import bgS1_1 from "@/app/images/bg-s1-1.png";
-import bgS1_2 from "@/app/images/bg-s1-2.png";
-import bgS1_3 from "@/app/images/bg-s1-3.png";
+import bgS1_2 from "@/app/images/เกมทายใจ-01.png";
 import { pauseSound, playSound } from "@/lib/slices/soundEffect";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -37,7 +36,7 @@ const data = [
         ในซอยไป กลับมีแสงสว่างวาบ
       </span>
     ),
-    image: bgS1_3.src,
+    image: bgS1_2.src,
   },
 ];
 

@@ -50,6 +50,11 @@ input[type="number"] {
   }
 }
 
+.\!bg-cover {
+
+  background-size: cover !important
+}
+
 .dots {
   width: 18px;
   height: 5.5px;
