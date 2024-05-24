@@ -2,7 +2,6 @@
 import Container from "@/app/components/Container";
 import React, { useState } from "react";
 import "animate.css";
-import "../../components/changeBg.css"
 import { useRouter } from "next/navigation";
 
 const Q7 = () => {
