@@ -8,9 +8,6 @@
 * {
   font-family: "Maitree";
 }
-body{
-  background: white;
-}
 
 input::placeholder {
   font-family: "Kanit", sans-serif;

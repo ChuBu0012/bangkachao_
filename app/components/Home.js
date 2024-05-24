@@ -1,7 +1,8 @@
-"use client"
+"use client";
 import React, { useState } from "react";
-import "animate.css"
+import "animate.css";
 import { useRouter } from "next/navigation";
+import Head from "next/head";
 const Content = ({
   isCheckNext,
   fadeIn,
@@ -9,10 +10,17 @@ const Content = ({
   changeStatusNext,
   startPlaying,
 }) => {
-  const [endfade, setendfade] = useState(false)
-  const router = useRouter()
+  const [endfade, setendfade] = useState(false);
+  const router = useRouter();
   return (
     <>
+      <Head>
+        <style>{`
+          body {
+            background-color: white;
+          }
+        `}</style>
+      </Head>
       <div className=" h-[296px] flex items-end">
         {isCheckNext ? (
           <p
@@ -21,7 +29,7 @@ const Content = ({
             }`}
           >
             เกมทายลักษณะนิสัยและบุคลิกภาพเกมนี้สร้างขึ้นโดยเพจบางกะเจ้าเพื่อเป็นพื้นที่พักใจ
-            <br/> และพื้นที่ปลอดภัยสำหรับผู้คนที่ผ่านมาพบเรา
+            <br /> และพื้นที่ปลอดภัยสำหรับผู้คนที่ผ่านมาพบเรา
             ขอให้พื้นที่นี้เป็นพื้นที่ที่คุณแวะมาได้เสมอนะ {":)"} <br />
             <br />
             เนื้อหาเกมทายลักษณะนิสัยนี้สร้างขึ้นเพื่อ <br />
@@ -54,11 +62,13 @@ const Content = ({
         </button>
       ) : (
         <button
-        onClick={()=>{
-          setendfade(true)
-          startPlaying()
-          setTimeout(()=>{router.push("/info")},1000)
-        }}
+          onClick={() => {
+            setendfade(true);
+            startPlaying();
+            setTimeout(() => {
+              router.push("/info");
+            }, 1000);
+          }}
           className={`mt-10 px-4 py-3 bg-green-200 rounded-lg text-white font-medium ${
             fadeIn ? "animate__animated animate__fadeIn" : ""
           } ${endfade ? "animate__animated animate__fadeOut" : ""}`}
