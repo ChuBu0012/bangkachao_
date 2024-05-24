@@ -12,7 +12,7 @@ import result_5 from "../images/result/5_result.png";
 import result_6 from "../images/result/6_result.png";
 import result_7 from "../images/result/7_result.png";
 import result_8 from "../images/result/8_result.png";
-import contact from "../images/ddddd-01.svg";
+import contact from "../images/ddddd-01.png";
 
 import "animate.css";
 import Link from "next/link";

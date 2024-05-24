@@ -2,8 +2,8 @@
 import Container from "@/app/components/Container";
 import StoryComponent from "@/app/components/Story";
 import bgS1_1 from "@/app/images/bg-s2-1.png";
-import bgS4_1 from "@/app/images/bg-s4-1.svg";
-import bgS4_3 from "@/app/images/bg-s4-3.svg";
+import bgS4_1 from "@/app/images/bg-s4-1.png";
+import bgS4_3 from "@/app/images/bg-s4-3.png";
 import { pauseSound, playSound } from "@/lib/slices/soundEffect";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
