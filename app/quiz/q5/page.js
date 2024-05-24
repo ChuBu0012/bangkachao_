@@ -3,6 +3,7 @@ import Container from "@/app/components/Container";
 import React, { useEffect, useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
+import "../../components/changeBg.css";
 import { useDispatch } from "react-redux";
 import { add } from "@/lib/slices/counterScore";
 
@@ -14,7 +15,8 @@ const Q5 = () => {
   const data = {
     q: (
       <span>
-        คุณปั่นจักรยานไปตามทาง <br/> จนไปพบกับคนที่ไม่ได้เจอกันมานาน <br/> คนนั้นคือใคร? 
+        คุณปั่นจักรยานไปตามทาง <br /> จนไปพบกับคนที่ไม่ได้เจอกันมานาน <br />{" "}
+        คนนั้นคือใคร?
       </span>
     ),
     c: [
@@ -34,7 +36,7 @@ const Q5 = () => {
   const [fadeOut, setfadeOut] = useState(false);
   const handleClick = (index, href) => {
     setSelected(index);
-    dispatch(add(index))
+    dispatch(add(index));
     setTimeout(() => {
       setfadeOut(true);
     }, 500);
@@ -43,7 +45,7 @@ const Q5 = () => {
     }, 1000);
   };
   useEffect(() => {
-    dispatch(playSound({soundId:"se3_1"}))
+    dispatch(playSound({ soundId: "se3_1" }));
   }, []);
 
   return (

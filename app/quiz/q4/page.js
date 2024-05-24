@@ -3,6 +3,7 @@ import Container from "@/app/components/Container";
 import React, { useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
+import "../../components/changeBg.css";
 import { useDispatch } from "react-redux";
 import { add } from "@/lib/slices/counterScore";
 
@@ -33,7 +34,7 @@ const Q4 = () => {
   const [fadeOut, setfadeOut] = useState(false);
   const handleClick = (index, href) => {
     setSelected(index);
-    dispatch(add(index))
+    dispatch(add(index));
     setTimeout(() => {
       setfadeOut(true);
     }, 500);
@@ -55,7 +56,7 @@ const Q4 = () => {
         {Array.isArray(data.c) &&
           data.c.map(({ text }, i) => (
             <ChoiceBtn
-            className={`${i == 6 && "text-sm"}`}
+              className={`${i == 6 && "text-sm"}`}
               key={i}
               choice={text}
               isSelected={selected === i}

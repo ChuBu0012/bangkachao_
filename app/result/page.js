@@ -12,6 +12,8 @@ import result_5 from "../images/result/5_result.png";
 import result_6 from "../images/result/6_result.png";
 import result_7 from "../images/result/7_result.png";
 import result_8 from "../images/result/8_result.png";
+import contact from "../images/ddddd-01.svg";
+import "../components/changeBg.css";
 import "animate.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -24,7 +26,6 @@ const Result = () => {
   const [loadingFadeout, setloadingFadeout] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [fadeOut, setfadeOut] = useState(false);
-  const [fadeIn, setfadeIn] = useState(true);
   const [result, setResult] = useState(false);
 
   const setOfResult = [
@@ -72,14 +73,49 @@ const Result = () => {
     <Container
       className={`flex flex-col item-center relative bg-conta in animate__animated animate__fadeIn animate__delay-1s`}
     >
-      <p className="mt-9 text-center">
-        <span className="font-medium">{info?.name}</span> คือ...</p>
-      <Image className={` -z-10 animate__animated ${result ? "animate__fadeIn" : "opacity-0 pointer-events-none"}`} src={setOfResult[maxIndex]}/>
+      <p
+        className={`mt-9 text-center ${
+          result ? "animate__fadeIn" : "absolute opacity-0"
+        }`}
+      >
+        <span className="font-medium">{info?.name}</span> คือ...
+      </p>
+      <div className={`animate__animated w-8/12 flex flex-col items-center mx-auto relative ${ 
+            result
+              ? "animate__fadeIn"
+              : "opacity-0 pointer-events-none absolute"
+          }`}>
+        <Image
+          className={`mt-3 mx-auto -z-10 w-full ${ 
+            result
+              ? ""
+              : "opacity-0 pointer-events-none absolute"
+          }`}
+          src={setOfResult[maxIndex]}
+        />
+        <a
+          href={setOfResult[maxIndex].src}
+          className={`mt-5 mx-auto w-full bg-green-200 text-center text-white py-2 rounded-lg ${ 
+            result
+              ? ""
+              : "opacity-0 pointer-events-none absolute"
+          }`}
+          download={`${info?.name || "result"}_image.png`}
+        >
+          บันทึกภาพ
+        </a>
+        <Image src={contact} className={`w-full  mt-6 ${ 
+            result
+              ? ""
+              : "opacity-0 pointer-events-none absolute"
+          }`}/>
       <Link
         target="_blank"
         href={"https://www.facebook.com/groups/253853421103820/"}
-        className="absolute bottom-[101px] right-[63px] w-[71px] aspect-square opacity-0"
+        className="absolute  bottom-[12px] left-[18px] w-[61px] opacity-0 aspect-square"
       ></Link>
+      </div>
+
       {loading && (
         <LoadingDots
           className={`${loadingFadeout ? "animate__fadeOut" : ""}`}

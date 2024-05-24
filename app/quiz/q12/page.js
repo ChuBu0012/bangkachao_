@@ -3,6 +3,7 @@ import Container from "@/app/components/Container";
 import React, { useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
+import "../../components/changeBg.css";
 import { useDispatch } from "react-redux";
 import { add } from "@/lib/slices/counterScore";
 
@@ -16,7 +17,7 @@ const Q1 = () => {
   const data = {
     q: (
       <span>
-        ตอนนี้ถึงเวลาที่ต้องกลับเมืองใหญ่แล้ว <br/> ก่อนจะจากกันไปคุณคิดว่า...
+        ตอนนี้ถึงเวลาที่ต้องกลับเมืองใหญ่แล้ว <br /> ก่อนจะจากกันไปคุณคิดว่า...
       </span>
     ),
     c: [
@@ -30,7 +31,7 @@ const Q1 = () => {
       { text: "ยังมีอะไรที่ไม่รู้อีกมาก ฉันจะกลับมาหาคำตอบ", score: 1 },
     ],
     image: bgS2_1.src,
-    py:"0px"
+    py: "0px",
   };
   const dispatch = useDispatch();
 
@@ -38,12 +39,12 @@ const Q1 = () => {
   const [fadeOut, setfadeOut] = useState(false);
   const handleClick = (index, href) => {
     setSelected(index);
-    dispatch(add(index))
+    dispatch(add(index));
     setTimeout(() => {
       setfadeOut(true);
     }, 500);
     setTimeout(() => {
-      dispatch(pauseSound({soundId:"se5_1"}))
+      dispatch(pauseSound({ soundId: "se5_1" }));
       router.push(href);
     }, 1000);
   };
@@ -53,7 +54,6 @@ const Q1 = () => {
       className={`flex flex-col items-center animate__animated  animate__fadeIn   ${
         fadeOut ? "animate__fadeOut" : "animate__delay-1s"
       }`}
-
       bgImg={bgS2_1.src}
     >
       <p className="mt-24 text-center animate__animated animate__fadeIn animate__delay-1s h-[72px] flex flex-col justify-center">

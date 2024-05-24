@@ -3,6 +3,7 @@ import Container from "@/app/components/Container";
 import React, { useEffect, useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
+import "../../components/changeBg.css";
 import { useDispatch } from "react-redux";
 import { add } from "@/lib/slices/counterScore";
 import { useRouter } from "next/navigation";
@@ -13,11 +14,7 @@ const Q2 = () => {
   const router = useRouter();
 
   const data = {
-    q: (
-      <span>
-        ทันใดนั้นเผลอสะดุดบางอย่างสิ่งนั้นคืออะไร
-      </span>
-    ),
+    q: <span>ทันใดนั้นเผลอสะดุดบางอย่างสิ่งนั้นคืออะไร</span>,
     c: [
       { text: "เท้าตัวเอง", score: 1 },
       { text: "ก้อนหิน ก้อนกรวด", score: 1 },
@@ -34,21 +31,21 @@ const Q2 = () => {
   const [selected, setSelected] = useState(null);
   const [fadeOut, setfadeOut] = useState(false);
   const handleClick = (index, href) => {
-    setSelected(index)
-    dispatch(add(index))
+    setSelected(index);
+    dispatch(add(index));
     setTimeout(() => {
-        setfadeOut(true);
-      }, 500);
-      setTimeout(() => {
-        dispatch(pauseSound({soundId:"se2_1"}))
-        dispatch(pauseSound({soundId:"se2_2"}))
-        dispatch(pauseSound({soundId:"se2_3"}))
-        router.push(href);
-      }, 1000);
+      setfadeOut(true);
+    }, 500);
+    setTimeout(() => {
+      dispatch(pauseSound({ soundId: "se2_1" }));
+      dispatch(pauseSound({ soundId: "se2_2" }));
+      dispatch(pauseSound({ soundId: "se2_3" }));
+      router.push(href);
+    }, 1000);
   };
-  useEffect(()=>{
-    dispatch(playSound({soundId:"se2_3"}))
-  },[])
+  useEffect(() => {
+    dispatch(playSound({ soundId: "se2_3" }));
+  }, []);
   return (
     <Container
       className={`flex flex-col items-center animate__animated animate__fadeIn ${

@@ -3,12 +3,12 @@ import Container from "@/app/components/Container";
 import React, { useEffect, useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
+import "../../components/changeBg.css";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import bgS2_1 from "@/app/images/bg-s2-1.png";
 import { add } from "@/lib/slices/counterScore";
 import { playSound } from "@/lib/slices/soundEffect";
-
 const Q1 = () => {
   const router = useRouter();
 
@@ -30,7 +30,7 @@ const Q1 = () => {
       { text: "สดชื่นอย่างบอกไม่ถูก", score: 1 },
     ],
     image: bgS2_1.src,
-    py:"0px"
+    py: "0px",
   };
   const dispatch = useDispatch();
 
@@ -38,7 +38,7 @@ const Q1 = () => {
   const [fadeOut, setfadeOut] = useState(false);
   const handleClick = (index, href) => {
     setSelected(index);
-    dispatch(add(index))
+    dispatch(add(index));
 
     setTimeout(() => {
       setfadeOut(true);
@@ -48,16 +48,15 @@ const Q1 = () => {
     }, 1000);
   };
 
-  useEffect(()=>{
-    dispatch(playSound({soundId:"se2_1"}))
-  },[])
+  useEffect(() => {
+    dispatch(playSound({ soundId: "se2_1" }));
+  }, []);
 
   return (
     <Container
       className={`flex flex-col items-center animate__animated  animate__fadeIn  ${
         fadeOut ? "animate__fadeOut" : "animate__delay-1s"
       }`}
-
       bgImg={bgS2_1.src}
     >
       <p className="mt-36 text-center animate__animated animate__fadeIn animate__delay-1s h-[72px] flex flex-col justify-center">

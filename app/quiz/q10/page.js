@@ -3,6 +3,7 @@ import Container from "@/app/components/Container";
 import React, { useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
+import "../../components/changeBg.css";
 import { useDispatch } from "react-redux";
 import { addTwo } from "@/lib/slices/counterScore";
 import { useRouter } from "next/navigation";
@@ -10,8 +11,12 @@ const Q9 = () => {
   const router = useRouter();
 
   const data = {
-    q: <span>แล้วคุณคิดว่า <br/>
-    คุณให้เวลากับตัวเองมากพอหรือยัง?</span>,
+    q: (
+      <span>
+        แล้วคุณคิดว่า <br />
+        คุณให้เวลากับตัวเองมากพอหรือยัง?
+      </span>
+    ),
     c: [
       { text: "ไม่พออยากได้เวลาเพิ่ม", score: 1 },
       { text: "ฉันชอบให้เวลากับคนอื่นมากกว่า", score: 1 },
@@ -20,14 +25,14 @@ const Q9 = () => {
     ],
   };
   const dispatch = useDispatch();
-  
+
   const [selected, setSelected] = useState(null);
   const [fadeOut, setfadeOut] = useState(false);
 
   const handleClick = (index, href) => {
     setSelected(index);
-    const index_ = index*2
-    dispatch(addTwo({ one: index_ , two: index_ + 1 }));
+    const index_ = index * 2;
+    dispatch(addTwo({ one: index_, two: index_ + 1 }));
     setTimeout(() => {
       setfadeOut(true);
     }, 500);

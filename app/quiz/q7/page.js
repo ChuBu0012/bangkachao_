@@ -3,6 +3,7 @@ import Container from "@/app/components/Container";
 import React, { useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
+import "../../components/changeBg.css";
 import { useDispatch } from "react-redux";
 import { add } from "@/lib/slices/counterScore";
 
@@ -11,11 +12,7 @@ const Q7 = () => {
   const router = useRouter();
 
   const data = {
-    q: (
-      <span>
-        เพื่อนของคุณตกใจเป็นอย่างมาก คุณจึง...
-      </span>
-    ),
+    q: <span>เพื่อนของคุณตกใจเป็นอย่างมาก คุณจึง...</span>,
     c: [
       { text: "ร้องไห้เพราะตกใจเหมือนกัน", score: 1 },
       { text: "ตกใจและรีบเสิร์ชหาสาเหตุ", score: 1 },
@@ -33,7 +30,7 @@ const Q7 = () => {
   const [fadeOut, setfadeOut] = useState(false);
   const handleClick = (index, href) => {
     setSelected(index);
-    dispatch(add(index))
+    dispatch(add(index));
     setTimeout(() => {
       setfadeOut(true);
     }, 500);
@@ -55,7 +52,7 @@ const Q7 = () => {
         {Array.isArray(data.c) &&
           data.c.map(({ text }, i) => (
             <ChoiceBtn
-            className={`${i == 3 || i == 4 ? "text-sm" :""}`}
+              className={`${i == 3 || i == 4 ? "text-sm" : ""}`}
               key={i}
               choice={text}
               isSelected={selected === i}

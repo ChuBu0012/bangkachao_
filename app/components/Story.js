@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import "animate.css";
 import { useRouter } from "next/navigation";
-
+import "./changeBg.css"
 const StoryComponent = ({
   data,
   href = "/",
@@ -48,7 +48,7 @@ const StoryComponent = ({
         fadeOut ? "animate__fadeOut" : "animate__delay-1s"
       } !bg-cover`}
       style={{
-        background: `url(${data[cursor]?.image}) no-repeat`,
+        background: ` url(${data[cursor]?.image}) no-repeat`,
         backgroundPositionY: py,
       }}
     >

@@ -3,6 +3,7 @@ import Container from "@/app/components/Container";
 import React, { useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
+import "../../components/changeBg.css";
 import { useDispatch } from "react-redux";
 import { addTwo } from "@/lib/slices/counterScore";
 import { useRouter } from "next/navigation";
@@ -10,9 +11,13 @@ const Q9 = () => {
   const router = useRouter();
 
   const data = {
-    q: <span>เป็นไงบ้าง <br/>
-    ลองคิดดูซิคุณใช้เวลากับตัวเองครั้งล่าสุด <br/>
-    เมื่อไหร่?</span>,
+    q: (
+      <span>
+        เป็นไงบ้าง <br />
+        ลองคิดดูซิคุณใช้เวลากับตัวเองครั้งล่าสุด <br />
+        เมื่อไหร่?
+      </span>
+    ),
     c: [
       { text: "เป็นประจำ", score: 1 },
       { text: "เป็นบางครั้ง", score: 1 },
