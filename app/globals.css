@@ -9,6 +9,11 @@
   font-family: "Maitree";
 }
 
+body{
+  height: 100%;
+  background: #FFFCED;
+}
+
 input::placeholder {
   font-family: "Kanit", sans-serif;
 }

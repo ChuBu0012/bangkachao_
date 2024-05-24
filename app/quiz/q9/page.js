@@ -3,7 +3,7 @@ import Container from "@/app/components/Container";
 import React, { useState } from "react";
 import "animate.css";
 import ChoiceBtn from "@/app/components/ChoiceBtn";
-import "../../components/changeBg.css";
+
 import { useDispatch } from "react-redux";
 import { addTwo } from "@/lib/slices/counterScore";
 import { useRouter } from "next/navigation";

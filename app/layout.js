@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} h-screen grid place-items-center`}>
         <StoreProvider>
           <div className="w-full md:max-w-[390px] h-full min-h-[844px] flex justify-center items-center">
-            <div className="h-full max-w-[390px] w-full">{children}</div>
+            {children}
           </div>
         </StoreProvider>
       </body>

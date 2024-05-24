@@ -1,9 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import "animate.css";
 import { useRouter } from "next/navigation";
-import "./changeBg.css"
+import Head from "next/head";
 const StoryComponent = ({
   data,
   href = "/",
@@ -36,6 +35,7 @@ const StoryComponent = ({
     }, 800);
   };
 
+  document.body.style.background = "#FFFCED"
   useEffect(() => {
     setfadeIn(true);
     setTimeout(() => {
@@ -43,23 +43,25 @@ const StoryComponent = ({
     }, 800);
   }, []);
   return (
-    <div
-      className={` flex flex-col items-center relative animate__animated animate__fadeIn w-full h-full ${
-        fadeOut ? "animate__fadeOut" : "animate__delay-1s"
-      } !bg-cover`}
-      style={{
-        background: ` url(${data[cursor]?.image}) no-repeat`,
-        backgroundPositionY: py,
-      }}
-    >
-      <button
-        onClick={changeStory}
-        className=" absolute w-full h-full opacity-0"
-      ></button>
-      <p className={` text-center`} style={{ marginTop: mt_text }}>
-        {data[cursor]?.text}
-      </p>
-    </div>
+    <>
+      <div
+        className={` flex flex-col items-center relative animate__animated animate__fadeIn w-full h-full ${
+          fadeOut ? "animate__fadeOut" : "animate__delay-1s"
+        } !bg-cover`}
+        style={{
+          background: ` url(${data[cursor]?.image}) no-repeat`,
+          backgroundPositionY: py,
+        }}
+      >
+        <button
+          onClick={changeStory}
+          className=" absolute w-full h-full opacity-0"
+        ></button>
+        <p className={` text-center`} style={{ marginTop: mt_text }}>
+          {data[cursor]?.text}
+        </p>
+      </div>
+    </>
   );
 };
 

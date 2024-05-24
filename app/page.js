@@ -14,8 +14,8 @@ export default function Home() {
 
   useEffect(() => {
     const audioInstance = new Audio("/soundtrack.mp3");
-    audioInstance.volume = 0.3; 
-    audioInstance.loop = true; 
+    audioInstance.volume = 0.3;
+    audioInstance.loop = true;
     setAudio(audioInstance);
   }, []);
 
@@ -50,23 +50,26 @@ export default function Home() {
   };
 
   useEffect(() => {
+    document.body.style.background = "#fff";
     setTimeout(() => {
       setisCheckIntro(false);
     }, 4000);
   }, []);
 
   return (
-    <Container className="flex flex-col items-center py-8 px-[38px] relative bg-white">
+    <>
       {isCheckIntro && <Introduction />}
-      <Content
-        isCheckIntro={isCheckIntro}
-        isCheckNext={isCheckNext}
-        fadeIn={fadeIn}
-        fadeOut={fadeOut}
-        changeStatusNext={changeStatusNext}
-        startPlaying={startPlaying}
-      />
-    </Container>
+      <Container className="flex flex-col items-center py-8 px-[38px] relative bg-white">
+        <Content
+          isCheckIntro={isCheckIntro}
+          isCheckNext={isCheckNext}
+          fadeIn={fadeIn}
+          fadeOut={fadeOut}
+          changeStatusNext={changeStatusNext}
+          startPlaying={startPlaying}
+        />
+      </Container>
+    </>
   );
 }
 {
