@@ -35,8 +35,8 @@ const StoryComponent = ({
     }, 800);
   };
 
-  document.body.style.background = "#FFFCED"
   useEffect(() => {
+    document.body.style.background = "#FFFCED";
     setfadeIn(true);
     setTimeout(() => {
       setfadeIn(false);
