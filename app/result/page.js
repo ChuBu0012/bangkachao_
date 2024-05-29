@@ -111,7 +111,7 @@ const Result = () => {
           }`}/>
       <Link
         target="_blank"
-        href={"https://www.facebook.com/groups/253853421103820/"}
+        href={"https://www.facebook.com/share/oGb7J4bB8CnBJUV4/?mibextid=K35XfP"}
         className="absolute  bottom-[12px] left-[18px] w-[61px] opacity-0 aspect-square"
       ></Link>
       </div>
