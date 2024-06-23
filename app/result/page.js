@@ -28,6 +28,8 @@ const Result = () => {
   const [fadeOut, setfadeOut] = useState(false);
   const [result, setResult] = useState(false);
 
+  const [btn,setBtn] = useState(false);
+
   const setOfResult = [
     result_1,
     result_2,
@@ -39,6 +41,7 @@ const Result = () => {
     result_8,
   ];
   const submit = async () => {
+    setBtn(true)
     try {
       setTimeout(() => {
         setfadeOut(true);
@@ -136,6 +139,7 @@ const Result = () => {
           </p>
           <button
             onClick={submit}
+            disabled={btn}
             className="py-1 px-11 mt-9 mx-auto bg-green-100 w-fit rounded-lg font-medium"
           >
             ดูผลลัพธ์

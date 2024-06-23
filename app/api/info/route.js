@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-
+import datas from "./info.json";
 const prisma = new PrismaClient();
 
 export async function POST(req) {
@@ -14,8 +14,13 @@ export async function POST(req) {
   return Response.json(newInfo);
 }
 
-// export async function DELETE(req) {
-//   const deletedInfo = await prisma.info.deleteMany();
+export async function GET(req) {
+  const newInfo = await prisma.info.findMany();
+  return Response.json(newInfo);
+}
 
-//   return Response.json({ status: 200, body: deletedInfo });
-// }
+export async function DELETE(req) {
+  const deletedInfo = await prisma.info.deleteMany();
+
+  return Response.json({ status: 200, body: deletedInfo });
+}
